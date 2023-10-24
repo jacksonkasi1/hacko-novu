@@ -4,10 +4,11 @@ import postController from "./controller";
 
 const api = new Elysia();
 
-api.get("/posts", () => postController.getPosts);
+api.get("/posts", (e) => postController.getPosts(e));
+
 
 api.get("/", (e) => {
-    console.log({e});
+    return e;
 });
 
 export default api;

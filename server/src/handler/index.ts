@@ -1,4 +1,5 @@
-import {   } from 'elysia'
+import { SchemaValidator } from "elysia";
+
 import { posts, Post } from "@data/posts";
 import response from "@interface/response";
 
@@ -7,8 +8,7 @@ interface PostResponse extends response {
 }
 
 const postHandler = {
-  getPosts: async (): Promise<PostResponse> => {
-
+  getPosts: async (e: SchemaValidator): Promise<PostResponse> => {
     return {
       success: true,
       data: posts,
