@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 
-const hankoApi: string = "<YOUR_HANKO_API_KEY>";
+const hankoApi: string = import.meta.env.VITE_HANKO_API_URL;
 
 const Login: React.FC = () => {
 	const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 	useEffect(() => {
 		register(hankoApi)
 			.catch((error: Error) => {
-				console.log(error);
+				console.log({error});
 			});
 	}, []);
 

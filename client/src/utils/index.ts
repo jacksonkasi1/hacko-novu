@@ -13,7 +13,7 @@ export const addNewPost = (
   date: string,
   navigate: () => void,
 ): void => {
-  fetch("http://localhost:4000/post/add", {
+  fetch("http://localhost:5000/post/add", {
     method: "POST",
     body: JSON.stringify({ u_id, title, content, date }),
     headers: {
@@ -38,7 +38,7 @@ export const fetchPostContent = (
   setLoading: (loading: boolean) => void,
   setPost: (post: any) => void,
 ): void => {
-  fetch("http://localhost:4000/post/details", {
+  fetch("http://localhost:5000/post/details", {
     method: "POST",
     body: JSON.stringify({ slug: slug }),
     headers: {
@@ -55,7 +55,7 @@ export const fetchPostContent = (
 };
 
 export const postReaction = (slug: string, type: string): void => {
-  fetch("http://localhost:4000/post/react", {
+  fetch("http://localhost:5000/post/react", {
     method: "POST",
     body: JSON.stringify({ slug, type, u_id: localStorage.getItem("u_id") }),
     headers: {
@@ -72,7 +72,7 @@ export const fetchAllPosts = (
   setLoading: (loading: boolean) => void,
   setPosts: (posts: any) => void,
 ): void => {
-  fetch("http://localhost:4000/posts")
+  fetch("http://localhost:5000/posts")
     .then((res: Response) => res.json())
     .then((data: { posts: any }) => {
       setLoading(false);
